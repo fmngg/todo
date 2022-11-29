@@ -2,16 +2,17 @@ import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { filteredArr, filterTag } from "../../redux/slices/ToDos";
+import { Rootstate } from "../../redux/store";
 
 import styles from "./TagSection.module.scss";
 
-const TagSection = () => {
-  const tags = useSelector((state) => state.todos.tags);
-  const filter = useSelector((state) => state.todos.filterTag);
+const TagSection: React.FC = () => {
+  const tags = useSelector((state: Rootstate) => state.todos.tags);
+  const filter = useSelector((state: Rootstate) => state.todos.filterTag);
 
   const dispatch = useDispatch();
 
-  const filterHandler = (title) => {
+  const filterHandler = (title: string) => {
     dispatch(filterTag(title));
   };
 

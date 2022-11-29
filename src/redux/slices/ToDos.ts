@@ -1,11 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface Todo {
+  id: string;
+  text: string;
+  tags: Array<Tag>;
+}
+
+interface Tag {
+  tagId: string;
+  tagTitle: string;
+}
+
+export interface MyState {
+  todos: Array<Todo>;
+  tags: Array<Tag>;
+  filterTag: string;
+  filteredArr: Array<Todo>;
+}
+
 const initialState = {
+  // @ts-ignore
   todos: JSON.parse(localStorage.getItem("todos")) || [],
+  // @ts-ignore
   tags: JSON.parse(localStorage.getItem("tags")) || [],
   filterTag: "",
   filteredArr: [],
-};
+} as MyState;
 
 const todoSlice = createSlice({
   name: "todos",
@@ -19,12 +39,16 @@ const todoSlice = createSlice({
     },
     editToDo: (state, action) => {
       const elem = state.todos.find((todo) => todo.id === action.payload.id);
+
+      if (!elem) throw new Error("elem is undefined");
+
       state.todos[state.todos.indexOf(elem)].text = action.payload.value;
     },
     addTag: (state, action) => {
       let repeat = false;
       let repeatInside = false;
       const elem = state.todos.find((todo) => todo.id === action.payload.id);
+      if (!elem) throw new Error("elem is undefined");
 
       for (let index = 0; index < state.tags.length; index++) {
         if (state.tags[index].tagTitle === action.payload.tag.tagTitle) {
@@ -62,6 +86,8 @@ const todoSlice = createSlice({
     deleteTag: (state, action) => {
       let repeat = false;
       const elem = state.todos.find((todo) => todo.id === action.payload.id);
+      if (!elem) throw new Error("elem is undefined");
+
       state.todos[state.todos.indexOf(elem)].tags = state.todos[
         state.todos.indexOf(elem)
       ].tags.filter((tag) => tag.tagId !== action.payload.tagId);

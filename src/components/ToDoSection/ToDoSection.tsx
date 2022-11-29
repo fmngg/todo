@@ -1,16 +1,19 @@
 import React from "react";
 import Input from "../Input/Input";
 import ToDo from "../ToDo/ToDo";
+
 import { useSelector, useDispatch } from "react-redux";
 import { filteredArr } from "../../redux/slices/ToDos";
 
+import { Rootstate } from "../../redux/store";
+
 import styles from "./ToDoSection.module.scss";
 
-const ToDoSection = () => {
-  const todos = useSelector((state) => state.todos.todos);
-  const filter = useSelector((state) => state.todos.filterTag);
-  const filtered = useSelector((state) => state.todos.filteredArr);
-  const newTodos = [];
+const ToDoSection: React.FC = () => {
+  const todos = useSelector((state: Rootstate) => state.todos.todos);
+  const filter = useSelector((state: Rootstate) => state.todos.filterTag);
+  const filtered = useSelector((state: Rootstate) => state.todos.filteredArr);
+  const newTodos: Array<Object> = [];
 
   const dispatch = useDispatch();
 
