@@ -1,0 +1,43 @@
+.tagSection {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .tag {
+    background-color: lighten($color: #457b9d, $amount: 10);
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 25px 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    &:hover {
+      background-color: #457b9d;
+    }
+  }
+
+  p {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .filtered {
+    color: #457b9d;
+    font-weight: 700;
+    font-size: 40px;
+  }
+
+  .back {
+    font-size: 40px;
+    margin: 0px 20px;
+    color: darken($color: #f7f8f8, $amount: 30);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+}
