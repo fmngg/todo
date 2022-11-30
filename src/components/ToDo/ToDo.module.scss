@@ -53,6 +53,10 @@
     }
   }
 
+  .tags::-webkit-scrollbar {
+    width: 0;
+  }
+
   .tags {
     display: flex;
     align-items: center;
@@ -94,7 +98,7 @@
 
     .add {
       position: absolute;
-      left: 5px;
+      left: 0px;
       height: 30px;
       width: 30px;
       color: darken($color: #f7f8f8, $amount: 20);
