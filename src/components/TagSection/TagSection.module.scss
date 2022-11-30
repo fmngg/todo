@@ -1,8 +1,10 @@
 .tagSection {
   display: flex;
-  height: 100px;
+  min-height: 100px;
+  height: fit-content;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 
   .tag {
     background-color: lighten($color: #457b9d, $amount: 10);
@@ -12,7 +14,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin: 0px 10px 10px 0px;
     &:hover {
       background-color: #457b9d;
     }
@@ -38,6 +40,19 @@
 
     &:hover {
       transform: translateX(-10px);
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .tagSection {
+    justify-content: center;
+    max-height: 100px;
+    overflow-y: scroll;
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
     }
   }
 }

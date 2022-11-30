@@ -1,9 +1,13 @@
-body {
-  background-color: #f7f8f8;
-  overflow-x: hidden;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f8f8;
+  overflow-x: hidden;
+
   font-family: "Roboto", sans-serif;
 }
 
@@ -19,5 +23,11 @@ code {
 }
 
 .wrapper {
-  width: 1080px;
+  width: 800px;
+}
+
+@media (max-width: 450px) {
+  .app {
+    padding: 10px;
+  }
 }

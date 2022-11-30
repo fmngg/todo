@@ -37,6 +37,16 @@ const ToDo: React.FC<Props> = ({ id, text }) => {
   const onKeyPressHandler = (e: any) => {
     if (e.keyCode === 13) {
       dispatch(editToDo({ id, value }));
+      // value.split(" ").forEach((obj) => {
+      //   if (obj[0] === "#") {
+      //     dispatch(
+      //       addTag({
+      //         id,
+      //         tag: { tagId: v4(), tagTitle: obj.substring(1).toLowerCase() },
+      //       })
+      //     );
+      //   }
+      // });
       e.target.blur();
     }
   };
