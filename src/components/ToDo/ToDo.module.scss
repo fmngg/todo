@@ -93,6 +93,8 @@
     }
 
     .add {
+      position: absolute;
+      left: 5px;
       height: 30px;
       width: 30px;
       color: darken($color: #f7f8f8, $amount: 20);
